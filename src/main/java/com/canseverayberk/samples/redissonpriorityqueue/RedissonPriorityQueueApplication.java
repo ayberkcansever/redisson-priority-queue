@@ -39,13 +39,13 @@ public class RedissonPriorityQueueApplication {
 		redisson = Redisson.create(config);
 		queue = redisson.getPriorityQueue("priorityQueue");
 
-		new Thread(new EnqueuThread(queue)).start();
-		new Thread(new DequeuThread(queue)).start();
+		new Thread(new EnqueueThread(queue)).start();
+		new Thread(new DequeueThread(queue)).start();
 	}
 
 	@Data
 	@AllArgsConstructor
-	class EnqueuThread implements Runnable {
+	class EnqueueThread implements Runnable {
 
 		private RPriorityQueue<Entry> queue;
 
@@ -66,7 +66,7 @@ public class RedissonPriorityQueueApplication {
 
 	@Data
 	@AllArgsConstructor
-	class DequeuThread implements Runnable {
+	class DequeueThread implements Runnable {
 
 		private RPriorityQueue<Entry> queue;
 
