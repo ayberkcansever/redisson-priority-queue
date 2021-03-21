@@ -17,7 +17,7 @@ public class Entry implements Comparable<Entry>, Serializable {
 
     @Override
     public int compareTo(Entry o) {
-        return priority.compareTo(o.priority);
+        return o.priority.compareTo(priority);
     }
 
 }
